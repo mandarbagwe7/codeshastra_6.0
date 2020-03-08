@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+<style>
+  .grid-container {
+    display: grid;
+    
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 15px;
+
+    background-color:rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .grid-container > div {
+    background-color:rgb(255, 255, 255);
+    border: 1px solid rgb(97, 91, 91);
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    font-size: 30px;
+  }
+  </style>
+</head>
+
+<body>
+ <div class="login">
+
+    
+    <p>A single image can tell lots of memories</p>
+    
+   
+    
+	<h1>Train set GO</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      
+      <!-- <form action="/app.py" method="POST"> -->
+      Enter files:<input type="file" name="file" placeholder="upload" required="required" style="width: 80px; background-color: transparent;text-decoration: none;"   />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div class="grid-container">
+    <div></div>
+    <div></div>
+    <div></div>  
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    {{ prediction_text }}
+  </div>
+</div>
+</body>
+</html>
